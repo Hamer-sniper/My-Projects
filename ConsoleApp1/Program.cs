@@ -5,45 +5,59 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HelloWorldConsoleApp
-{  
+{
     class Program
-    {       
+    {
         static void Main(string[] args)
         {
             // Задание 1
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Задание №1");
             Console.ForegroundColor = ConsoleColor.White;
 
-            string fullName = "Ахвердов Андрей Александрович", email = "wm-andrew@mail.ru";
-            int age = 27;
-            double programmingBal = 5, mathBal = 5, physicsBal = 4;
-            
-            Console.WriteLine("ФИО: {0}\nВозраст: {1}\nEmail: {2}\nБаллы по программированию: {3}\nБаллы по математике: {4}\nБаллы по физике: {5}",
-                fullName,
-                age,
-                email,
-                programmingBal,
-                mathBal,
-                physicsBal);
+            int row = 0;
+            int col = 0;
+            int sum = 0;
 
-            Console.ReadKey();
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("\nВведите число строк: ");
+                bool res1 = int.TryParse(Console.ReadLine(), out row);
 
-            // Задание 2
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nЗадание №2");
-            Console.ForegroundColor = ConsoleColor.White;
 
-            double sumBalls = 0, averageBalls = 0;
+                Console.Write("Введите число столбцов: ");
+                bool res2 = int.TryParse(Console.ReadLine(), out col);
 
-            sumBalls = programmingBal + mathBal + physicsBal;
-            averageBalls = sumBalls / 3;
+                if (res1 && res2)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"Исходная матрица : matrix[{row}, {col}]");
+                    Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine($"Сумма баллов: {sumBalls}");
-            Console.WriteLine("Среднее арифметическое баллов: {0:0.00}", averageBalls);
+                    int[,] matrix = new int[row, col];
 
-            Console.ReadKey();
+                    Random r = new Random();
 
+                    for (int i = 0; i < row; i++)
+                    {
+                        sum = 0;
+                        for (int j = 0; j < col; j++)
+                        {
+                            matrix[i, j] = r.Next(10);
+                            sum += matrix[i, j];
+                            Console.Write($"{matrix[i, j]} ");
+                        }
+                        Console.WriteLine($" : {sum}");
+                    }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Размеры матрицы заданы не верно! Повторите попытку!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
         }
     }
 }

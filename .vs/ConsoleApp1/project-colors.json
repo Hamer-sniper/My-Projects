@@ -10,7 +10,22 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Прочие файлы",
       "ColorIndex": -1
+    },
+    "4096d2ec-fd83-413e-9b35-9882f278114d": {
+      "ProjectGuid": "4096d2ec-fd83-413e-9b35-9882f278114d",
+      "DisplayName": "ConsoleApp2",
+      "ColorIndex": 1
+    },
+    "75b809a1-c088-452c-b701-cd5fbe120d11": {
+      "ProjectGuid": "75b809a1-c088-452c-b701-cd5fbe120d11",
+      "DisplayName": "ConsoleApp2- v2",
+      "ColorIndex": 2
+    },
+    "f44072b1-e5ad-48e8-8985-3227619ce3b1": {
+      "ProjectGuid": "f44072b1-e5ad-48e8-8985-3227619ce3b1",
+      "DisplayName": "ConsoleApp3",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }
