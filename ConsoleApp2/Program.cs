@@ -14,66 +14,52 @@ namespace HelloWorldConsoleApp
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Задание №2");
 
-
-
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\nВведите длину последовательности: ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
+                Console.ForegroundColor = ConsoleColor.White;                
 
-                // Проверяем коорекность ввода целого числа
-                if (int.TryParse(Console.ReadLine(), out int integer))
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Отлично! Теперь требуется поочередно ввести целые числа");
-                    Console.ForegroundColor = ConsoleColor.White;
+                ReversWords(Console.ReadLine());
+            }
+        }
 
-                    int[] mas = new int[integer];
+        /// <summary>
+        /// Выводит перевернутый массив слов из введенной строки
+        /// </summary>
+        /// <param name="Строка">userString</param>
+        /// <returns></returns>
+        static void ReversWords(string inputPhrase)
+        {
+            string[] splitedMas = SplitStringToMas(inputPhrase);
 
-                    for (int i = 0; i < integer; i++)
-                    {
-                        while (true)
-                        {
-                            Console.Write($"Введите число №{i + 1}: ");
-
-                            try
-                            {
-                                mas[i] = Convert.ToInt32(Console.ReadLine());
-                            }
-                            catch
-                            {
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("Вы ввели не целое число! Повторите попытку!");
-                                Console.ForegroundColor = ConsoleColor.White;
-                                i--;
-                                break;
-                            }
-                            break;
-                        }
-                    }
-                    int minElement = int.MaxValue;
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"Получившийся массив: ");
-
-                    foreach (int element in mas)
-                    {
-                        if (element < minElement)
-                            minElement = element;
-                        Console.Write($"{element} ");
-                    }
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nМинимальный элемент: {minElement}");
-
-
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Вы ввели не целое число! Повторите попытку!");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nПолучившийся массив слов:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            foreach (var word in splitedMas)
+            {
+                Console.Write(word + " ");
             }
 
+            Array.Reverse(splitedMas);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nПолучившийся перевернутый массив слов:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            foreach (var word in splitedMas)
+            {
+                Console.Write(word + " ");
+            }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// Разделяет слова
+        /// </summary>
+        /// <param name="Массив">mas</param>
+        static string[] SplitStringToMas(string userString)
+        {
+            string[] mas = userString.Split(' ');
+            return mas;
         }
     }
 }

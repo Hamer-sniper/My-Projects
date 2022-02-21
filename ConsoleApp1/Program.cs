@@ -9,54 +9,46 @@ namespace HelloWorldConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {
-            // Задание 1
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Задание №1");
-            Console.ForegroundColor = ConsoleColor.White;
-
-            int row = 0;
-            int col = 0;
-            int sum = 0;
+        {            
+                // Задание 1
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Задание №1");
 
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("\nВведите число строк: ");
-                bool res1 = int.TryParse(Console.ReadLine(), out row);
 
+                var userStringMas = SplitStringToMas(Console.ReadLine());
 
-                Console.Write("Введите число столбцов: ");
-                bool res2 = int.TryParse(Console.ReadLine(), out col);
+                WriteLineMas(userStringMas);
+            }
+        }
 
-                if (res1 && res2)
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"Исходная матрица : matrix[{row}, {col}]");
-                    Console.ForegroundColor = ConsoleColor.White;
+        /// <summary>
+        /// Возвращает массив слов из введенной строки
+        /// </summary>
+        /// <param name="Строка">userString</param>
+        /// <returns></returns>
+        static string[] SplitStringToMas(string userString)
+        {
+            string[] mas = userString.Split(' ');
+            return mas;
+        }
 
-                    int[,] matrix = new int[row, col];
-
-                    Random r = new Random();
-
-                    for (int i = 0; i < row; i++)
-                    {
-                        sum = 0;
-                        for (int j = 0; j < col; j++)
-                        {
-                            matrix[i, j] = r.Next(10);
-                            sum += matrix[i, j];
-                            Console.Write($"{matrix[i, j]} ");
-                        }
-                        Console.WriteLine($" : {sum}");
-                    }
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Размеры матрицы заданы не верно! Повторите попытку!");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+        /// <summary>
+        /// Выводит на экран массив
+        /// </summary>
+        /// <param name="Массив">mas</param>
+        static void WriteLineMas(string[] mas)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nПолучившийся массив слов:");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            foreach (var word in mas)
+            {
+                Console.WriteLine(word);
             }
         }
     }
