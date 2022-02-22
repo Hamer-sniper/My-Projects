@@ -14,14 +14,12 @@ namespace HelloWorldConsoleApp
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Задание №2");
 
-            while (true)
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
-                Console.ForegroundColor = ConsoleColor.White;                
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
+            Console.ForegroundColor = ConsoleColor.White;
 
-                ReversWords(Console.ReadLine());
-            }
+            ReversWords(Console.ReadLine());
+
         }
 
         /// <summary>
@@ -32,24 +30,18 @@ namespace HelloWorldConsoleApp
         static void ReversWords(string inputPhrase)
         {
             string[] splitedMas = SplitStringToMas(inputPhrase);
-
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\nПолучившийся массив слов:");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            foreach (var word in splitedMas)
-            {
-                Console.Write(word + " ");
-            }
+            string resultString = "";
 
             Array.Reverse(splitedMas);
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\nПолучившийся перевернутый массив слов:");
+            Console.WriteLine("Получившийся перевернутый массив слов:");
             Console.ForegroundColor = ConsoleColor.Yellow;
             foreach (var word in splitedMas)
             {
-                Console.Write(word + " ");
+                resultString += word + " ";
             }
-            Console.WriteLine();
+            Console.Write(resultString.Trim());
+            Console.ReadKey();
         }
 
         /// <summary>

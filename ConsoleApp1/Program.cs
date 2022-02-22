@@ -9,21 +9,20 @@ namespace HelloWorldConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {            
-                // Задание 1
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Задание №1");
+        {
+            // Задание 1
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Задание №1");
 
-            while (true)
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
-                Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\nВведите какое-нибудь длинное предложение, содержащее пробелы:");
+            Console.ForegroundColor = ConsoleColor.White;
 
-                var userStringMas = SplitStringToMas(Console.ReadLine());
+            var userStringMas = SplitStringToMas(Console.ReadLine());
 
-                WriteLineMas(userStringMas);
-            }
+            WriteLineMas(userStringMas);
+
+            Console.ReadKey();
         }
 
         /// <summary>
