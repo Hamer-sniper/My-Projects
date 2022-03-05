@@ -11,66 +11,66 @@ namespace HelloWorldConsoleApp
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Справочник \"Сотрудники\"");
+            Console.WriteLine("Задание 1: Лист целых чисел");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine();
 
-            string fileName = @"db.txt";
-            string[] header = new string[] { "Номер", "ID", "Дата и время", "ФИО", "Возраст", "Рост", "Дата рождения", "Место рождения" };
-            Repository rep = new Repository(fileName, header);
+            List<int> myList = new List<int>();
+            int elementsCount = 100;
 
-            char key = 'д';
+            AddNumbers(myList, elementsCount);
+            Show(myList, elementsCount);
 
-            do
-            {                
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\nВведите одну из следущих команд:");
-                Console.WriteLine("1 - Вывести данные на экран");
-                Console.WriteLine("2 - Заполнить данные и добавить новую запись в конец файла");
-                Console.WriteLine("3 - Удалить данные по номеру строки");
-                Console.WriteLine("4 - Изменить данные по номеру строки");
-                Console.WriteLine("5 - Найти записи за определенный период");
-                Console.WriteLine("6 - Отсортировать записи по дате добавления");
-                Console.WriteLine("0 - Выход");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("Введите команду: ");
+            int collectionLenght = DeleteNumbers(myList, elementsCount);
+            Show(myList, collectionLenght);
+          
+            Console.ReadKey();
+        }
 
-                switch (Console.ReadLine())
+        /// <summary>
+        /// Вывести коллекцию на экран
+        /// </summary>
+        /// <param name="myList">Коллекция</param>
+        /// <param name="count">Количество итераций</param>
+        static void Show(List<int> myList, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"{myList[i],2} ");
+            }
+            Console.WriteLine("\n");
+        }
+
+        /// <summary>
+        /// Заполнить коллекцию целыми числами от 0 до 100
+        /// </summary>
+        /// <param name="myList">Коллекция</param>
+        /// <param name="count">Количество итераций</param>
+        static void AddNumbers(List<int> myList, int count)
+        {
+            Random rand = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                myList.Add(rand.Next(0, 100));
+            }
+        }
+
+        /// <summary>
+        /// Удаление элементов из коллекции
+        /// </summary>
+        /// <param name="myList">Коллекция</param>
+        /// <param name="count">Количество итераций</param>
+        /// <returns>Количество элементов</returns>
+        static int DeleteNumbers(List<int> myList, int count)
+        {
+            for (int i = count - 1; i >= 0; i--)
+            {
+                if (myList[i] < 50 && myList[i] > 25)
                 {
-                    case "1":
-                        rep.PrintDbToConsole();
-                        break;
-                    case "2":
-                        rep.AddFromConsole();
-                        break;
-                    case "3":
-                        rep.Delete();
-                        break;
-                    case "4":
-                        rep.Change();
-                        break;
-                    case "5":
-                        rep.FindDate();
-                        break;
-                    case "6":
-                        rep.SortByDate();
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Не верно введена команда! ");
-                        break;
+                    myList.RemoveAt(i);
                 }
-
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("\nПродолжить работу со справочником? н/д");
-                key = Console.ReadKey(true).KeyChar;
-                Console.WriteLine();
-
-            } while (char.ToLower(key) == 'д');
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\nСпасибо за использование справочника!");
-            Thread.Sleep(3000);
+            }
+            return myList.Count();
         }
     }
 }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Person name="Николаев Валентин Владимирович">
+  <Address>
+    <Street>ул.Космонавтов</Street>
+    <HouseNumber>8</HouseNumber>
+    <FlatNumber>140</FlatNumber>
+  </Address>
+  <Phones>
+    <MobilePhone>89280070505</MobilePhone>
+    <FlatPhone>775599</FlatPhone>
+  </Phones>
+</Person>
