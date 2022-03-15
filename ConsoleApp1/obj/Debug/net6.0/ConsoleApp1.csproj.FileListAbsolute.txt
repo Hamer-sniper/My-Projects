@@ -13,3 +13,6 @@ D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleAp
 D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.pdb
 D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
 D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\refint\ConsoleApp1.dll
+D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.csproj.CopyComplete
+D:\Programming\DzSkillbox\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\Telegram.Bot.dll
