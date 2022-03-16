@@ -8,6 +8,7 @@ git config --list
 
 // Переход в папку с репозиторием
 cd D:\Programming/DzSkillbox/ConsoleApp1
+cd D:\Programming/DzSkillbox/WpfApp1
 
 // Просмотреть все файлы в папке
 $ ls -la
@@ -18,18 +19,17 @@ $ ls -la
 // Отображение текущего состояния репозитория
 git status
 
-// Добавление в индекс всех файлов в папке
-git add .
+// Добавление в индекс всех файлов  \
+git add .							 \  // Добавить коммит сразу, без git add .
+									  > git commit -a -m 'First and second DZ'
+// Добавление коммита			     /
+git commit -m 'First and second DZ' /
 
 // Удалить файлы из индекса
 git reset
 
 // Удалить конкретный файл из индекса
 git reset myfile.cpp
-
-// Добавление коммита
-git commit -m 'First and second DZ'
-(git commit -a -m 'First and second DZ', без git add .)
 
 // Содержимое последнего коммита (выйти q)
 git show
@@ -49,7 +49,7 @@ git push -u origin master
 
 // Получить обновления с сервера
 git pull
-// Конфликт версий: выйти изз редактора (vim)
+// Конфликт версий: выйти из редактора (vim)
 :wq или :q (тогда сообщение коммита по умолчанию)
 
 // Изменили, но пока не проиндексировали
@@ -59,10 +59,13 @@ git diff
 git diff --cached
 
 // Изменить файлы в последнем коммите (локально)
-$ git commit --amend --no-edit
+git commit --amend --no-edit
 
 // Создать ветку			\
-$ git branch new-branch		 \    // Создать ветку и переключиться
-							  >   $ git -b new-branch
+git branch new-branch		 \    // Создать ветку и переключиться
+							  >   	     git -b new-branch
 // Переключиться на ветку    /
-$ git checkout new-branch	/
+git checkout new-branch	/
+
+// Просмотреть ветки 
+git branch
