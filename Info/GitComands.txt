@@ -1,0 +1,68 @@
+// Задание настроек гит
+git --version
+git config --global user.name "Andrew Ahverdov"
+git config --global user.email "wm-andrew@mail.ru"
+
+// Просмотр настроек гит
+git config --list
+
+// Переход в папку с репозиторием
+cd D:\Programming/DzSkillbox/ConsoleApp1
+
+// Просмотреть все файлы в папке
+$ ls -la
+
+// Инициализация репозитория
+ git init
+
+// Отображение текущего состояния репозитория
+git status
+
+// Добавление в индекс всех файлов в папке
+git add .
+
+// Удалить файлы из индекса
+git reset
+
+// Удалить конкретный файл из индекса
+git reset myfile.cpp
+
+// Добавление коммита
+git commit -m 'First and second DZ'
+(git commit -a -m 'First and second DZ', без git add .)
+
+// Содержимое последнего коммита (выйти q)
+git show
+
+// Просмотреть все коммиты
+git log
+
+// Помотреть путь к удаленному репозиторию
+git remote -v
+
+//Изменить удаленный репозиторий
+git remote remove origin
+git remote add origin https://github.com/Hamer-sniper/console-app-1.git
+
+//Отправить в удаленный репозиторий
+git push -u origin master
+
+// Получить обновления с сервера
+git pull
+// Конфликт версий: выйти изз редактора (vim)
+:wq или :q (тогда сообщение коммита по умолчанию)
+
+// Изменили, но пока не проиндексировали
+git diff
+
+// Просмотреть проиндексированные изменения
+git diff --cached
+
+// Изменить файлы в последнем коммите (локально)
+$ git commit --amend --no-edit
+
+// Создать ветку			\
+$ git branch new-branch		 \    // Создать ветку и переключиться
+							  >   $ git -b new-branch
+// Переключиться на ветку    /
+$ git checkout new-branch	/

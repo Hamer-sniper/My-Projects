@@ -1,5 +1,5 @@
-Info/*.txt
-Info/*.bak
+Info/.txt
+Info/.bak
 !Info/GitComands.txt
 Examples/
 Git Bash.lnk
