@@ -140,6 +140,9 @@ git checkout cf1a2347784 css/main.css
 // Отменить конкретный коммит (без вывода строки комментария)
 git revert --no-commit ewedfgfw7327r78
 
+// Отменить последний коммит
+git revert HEAD
+
 // Сдвигает указатель на указанный коммит (Файлы добавлены в индекс)
 git reset --soft sdfs3r545
 
